@@ -6,7 +6,7 @@ Deep learning models are often overconfident and can predict outputs with high p
 
 This overconfidence is a problem since it creates an illusion of security in the predictions. Uncertainty analysis helps developers and users understand more about the knowledge of the models.
 
-Imagine that you are a biology professor specializing in butterflies. One day, one of your students arrives with a butterfly you have never seen before. What do you do? You will probably give your best guess as to which family that butterfly belongs to, but you will also tell your student that you need some time to research this new species and will give them a better answer when you have more knowledge.
+Imagine that you are a biologist specializing in identifying butterflies. One day, a student arrives with a butterfly you have never seen before. What do you do? You could give your best guess as to which group that butterfly belongs to, but you will also tell the student that you need more time to research this unknown species and give them a better answer when you have more knowledge.
 
 Ideally, deep learning models should do this: give a prediction along with a warning about their knowledge—or lack thereof—about the input pattern.
 
