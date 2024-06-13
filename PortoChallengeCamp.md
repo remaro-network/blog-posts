@@ -1,3 +1,4 @@
+Failures in the rudder system of Autonomous Underwater Vehicles (AUVs) can vary in nature and severity. Here are some common types of rudder failures that AUVs might encounter:
 1. **Mechanical Failures:** - Rudder linkage breakage or detachment - Damage to the rudder shaft - Corrosion or wear of rudder bearings - Misalignment of rudder components 
 2. **Electrical Failures:** - Failure of the servo motor responsible for rudder actuation - Electrical wiring faults or short circuits - Malfunction of electronic control units (ECUs) responsible for rudder control 
 3. **Hydrodynamic Failures:** - Cavitation around the rudder, leading to loss of control or reduced effectiveness - Excessive drag caused by rudder design or positioning, affecting vehicle maneuverability - Ineffective rudder response to changes in water currents or pressure gradients 
