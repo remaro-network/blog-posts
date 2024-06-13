@@ -16,6 +16,23 @@ YOLOX-ViT enhances the YOLOX model by integrating a vision transformer layer (Vi
 </figure>
 </div>
 
+<div style="text-align: center;">
+<figure>
+  <img src="./media/KD/Architecture-Explanation.png" alt="Architecture Block Explanations" style="width:100%;">
+  <figcaption>Figure 3: Architecture Block Explanations.
+  </figcaption>
+</figure>
+</div>
+
+<div style="text-align: center;">
+<figure>
+  <img src="./media/KD/VIT.png" alt="Visual Transformer layer" style="width:100%;">
+  <figcaption>Figure 4: Visual Transformer Layer.
+  </figcaption>
+</figure>
+</div>
+
+
 ### Knowledge Distillation
 Knowledge distillation (KD) is employed to transfer knowledge from a larger, well-trained model (teacher) to a smaller model (student), using a combined loss function that incorporates both hard and soft loss components. This process allows the smaller model to learn from the nuanced behaviors of the larger model, improving its performance while maintaining a reduced size.
 
