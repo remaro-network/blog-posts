@@ -8,10 +8,26 @@ In this context, deep learning (DL) based computer vision offers a promising sol
 ### YOLOX-ViT Model
 YOLOX-ViT enhances the YOLOX model by integrating a vision transformer layer (ViT) between the backbone and neck, significantly improving feature extraction capabilities. The ViT layer is configured with 4 multi-head self-attention (MHSA) sub-layers, combining the spatial hierarchy of CNNs with the global context of transformers. This integration enhances the model's ability to detect objects in complex underwater environments.
 
+<div style="text-align: center;">
+<figure>
+  <img src="./media/KD/YoloX-Model.png" alt="YOLOX-ViT Model Architecture" style="width:100%;">
+  <figcaption>Figure 2: YOLOX-ViT Model Architecture.
+  </figcaption>
+</figure>
+</div>
+
 ### Knowledge Distillation
 Knowledge distillation (KD) is employed to transfer knowledge from a larger, well-trained model (teacher) to a smaller model (student), using a combined loss function that incorporates both hard and soft loss components. This process allows the smaller model to learn from the nuanced behaviors of the larger model, improving its performance while maintaining a reduced size.
 
 The KD process in YOLOX-ViT involves computing distinct loss functions for each output of the feature pyramid network (FPN), ensuring a comprehensive transfer of knowledge across classification, bounding box regression, and objectness scores. Both online and offline KD methods are explored, with the offline method reducing training time significantly. Using knowledge distillation, YOLOX-ViT-Nano learns directly from the logits of a pre-trained YOLOX-ViT-L model. This approach has shown a notable reduction in false positive detections by 20.35 points.
+
+<div style="text-align: center;">
+<figure>
+  <img src="./media/KD/KD_GA.png" alt="Knowledge Distillation" style="width:50%;">
+  <figcaption>Figure 1: Visualizating the Knowledge Distillation Process in YOLOX-ViT.
+  </figcaption>
+</figure>
+</div>
 
 ### Large vs. Small Models
 The lack of dedicated computing resources such as GPUs is a common hindrance in deploying computer vision models in production. Large models require dedicated hardware to run in real time, while small models, though faster, suffer from reduced accuracy. Knowledge distillation allows small models to learn from larger ones, improving their accuracy while maintaining efficiency for real-time deployment on CPUs.
@@ -33,22 +49,22 @@ The integration of a visual transformer layer and the application of knowledge d
 The source code for knowledge distillation in YOLOX-ViT is available at [https://github.com/remaro-network/KD-YOLOX-ViT](https://github.com/remaro-network/KD-YOLOX-ViT).
 
 
-## Enhancing Model Robustness with Alpha Beta Crown Tool in Side-Scan Sonar Object Detection
+## Enhancing Model Robustness with Adversarial Examples
 
 ### Introduction
-Ensuring the robustness of object detection models is paramount for safe and effective underwater robotic operations. Real-world scenarios often present challenges such as noise interference, occlusions, and varying environmental conditions, which can hinder the performance of computer vision systems. To address these challenges, we introduce a novel approach leveraging the Alpha Beta Crown tool to enhance the robustness of object detection models for side-scan sonar (SSS) imagery.
+Ensuring the robustness of object detection models is paramount for safe and effective underwater robotic operations. Real-world scenarios often present challenges such as noise interference, occlusions, and varying environmental conditions, which can hinder the performance of computer vision systems. To address these challenges, we introduce a novel approach leveraging the alpha-beta-Crown tool to enhance the robustness of object detection models for side-scan sonar (SSS) imagery.
 
 ### The Need for Robust Object Detection
 Autonomous underwater vehicles (AUVs) rely on accurate object detection capabilities to navigate, identify obstacles, and perform tasks efficiently in underwater environments. However, traditional models may struggle to maintain performance in the presence of noise or unexpected conditions, posing risks to mission success and equipment integrity.
 
-### Introducing the Alpha Beta Crown Tool
-The Alpha Beta Crown tool offers a systematic methodology to improve the robustness of object detection models. By generating specific safety properties, such as noise thresholds and bounding box criteria, the tool facilitates the identification of vulnerabilities in the model's predictions. This proactive approach enables us to address potential weaknesses before deployment, enhancing the model's reliability in real-world scenarios.
+### Introducing the Alpha-Beta-Crown Tool
+The Alpha-Beta-Crown tool offers a systematic methodology to improve the robustness of object detection models. By generating specific safety properties, such as noise thresholds and bounding box criteria, the tool facilitates the identification of vulnerabilities in the model's predictions. This proactive approach enables us to address potential weaknesses before deployment, enhancing the model's reliability in real-world scenarios.
 
 ### Methodology
-Our approach involves iteratively refining the model using counterexamples generated by the Alpha Beta Crown tool. When safety properties are violated, indicating potential vulnerabilities, the model is retrained using the last epoch weights as a starting point. This iterative process allows the model to learn from its mistakes and adapt to challenging conditions, thereby improving its robustness.
+Our approach involves iteratively refining the model using counterexamples generated by the Alpha-Beta-Crown tool. When safety properties are violated, indicating potential vulnerabilities, the model is retrained using the last epoch weights as a starting point. This iterative process allows the model to learn from its mistakes and adapt to challenging conditions, thereby improving its robustness.
 
 ### Adversarial Attack Evaluation
-To assess the effectiveness of the enhanced model, we subject it to adversarial attacks using Projected Gradient Descent (PGD) before and after the refinement process. Adversarial attacks simulate real-world scenarios by introducing perturbations or noise to the input data, evaluating the model's resilience against such disruptions. By comparing the model's performance pre- and post-refinement, we can quantify the improvement in robustness achieved through the Alpha Beta Crown methodology.
+To assess the effectiveness of the enhanced model, we subject it to adversarial attacks using Projected Gradient Descent (PGD) before and after the refinement process. Adversarial attacks simulate real-world scenarios by introducing perturbations or noise to the input data, evaluating the model's resilience against such disruptions. By comparing the model's performance pre- and post-refinement, we can quantify the improvement in robustness achieved through the Alpha-Beta-Crown methodology.
 
 ### Introducing Middle of Bounding Boxes Metric
 In addition to traditional evaluation metrics, we introduce a novel metric that measures the distance between the ground truth middle of the bounding boxes and the inference middle. This metric provides insights into the alignment between predicted and actual object locations, offering a more comprehensive assessment of model performance.
@@ -57,13 +73,13 @@ In addition to traditional evaluation metrics, we introduce a novel metric that 
 Throughout the refinement process, we continue to leverage knowledge distillation (KD) to transfer knowledge from larger, well-trained models to the refined model. By distilling the insights and nuances of larger models into the refined model, we further enhance its performance and generalization capabilities.
 
 ### Leveraging Real-World Datasets
-In addition to synthetic data generated by the Alpha Beta Crown tool, we utilize two noisy datasets from real-world environments. These datasets provide valuable insights into the challenges faced by object detection models in practical scenarios, enabling more comprehensive validation and refinement of our approach. The incorporation of real-world data ensures that our model remains effective in diverse and unpredictable conditions.
+In addition to synthetic data generated by the alpha-beta-Crown tool, we utilize two noisy datasets from real-world environments. These datasets provide valuable insights into the challenges faced by object detection models in practical scenarios, enabling more comprehensive validation and refinement of our approach. The incorporation of real-world data ensures that our model remains effective in diverse and unpredictable conditions.
 
 ### Experimental Validation
-Our experimental evaluation demonstrates the efficacy of the Alpha Beta Crown methodology in enhancing model robustness. By iteratively refining the model based on identified vulnerabilities and leveraging knowledge distillation, we observe significant improvements in detection performance, particularly in the presence of noise and adverse conditions. The refined model exhibits greater resilience against adversarial attacks and demonstrates improved alignment with ground truth bounding box locations.
+Our experimental evaluation demonstrates the efficacy of the alpha-beta-Crown methodology in enhancing model robustness. By iteratively refining the model based on identified vulnerabilities and leveraging knowledge distillation, we observe significant improvements in detection performance, particularly in the presence of noise and adverse conditions. The refined model exhibits greater resilience against adversarial attacks and demonstrates improved alignment with ground truth bounding box locations.
 
 ### Conclusion
-The integration of the Alpha Beta Crown tool offers a proactive approach to improving the robustness of object detection models for side-scan sonar imagery. By systematically identifying and addressing vulnerabilities, and incorporating novel evaluation metrics and knowledge distillation, we enhance the model's ability to maintain accurate detections in challenging underwater environments. This methodology represents a significant advancement in ensuring the reliability and safety of autonomous underwater vehicles, paving the way for more effective and secure underwater exploration and operations.
+The integration of the alpha-beta-Crown tool offers a proactive approach to improving the robustness of object detection models for side-scan sonar imagery. By systematically identifying and addressing vulnerabilities, and incorporating novel evaluation metrics and knowledge distillation, we enhance the model's ability to maintain accurate detections in challenging underwater environments. This methodology represents a significant advancement in ensuring the reliability and safety of autonomous underwater vehicles, paving the way for more effective and secure underwater exploration and operations.
 
-The source code for the Alpha Beta Crown tool, including the integration of adversarial attacks, novel evaluation metrics, and knowledge distillation, will be made available at [insert link here]. Stay tuned for updates and further advancements in underwater robotics and computer vision research.
+The source code for the alpha-beta-Crown tool, including the integration of adversarial attacks, novel evaluation metrics, and knowledge distillation, will be made available at [insert link here]. Stay tuned for updates and further advancements in underwater robotics and computer vision research.
 
