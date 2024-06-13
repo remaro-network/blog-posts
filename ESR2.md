@@ -36,6 +36,14 @@ First of all, we can divide SLAM in two modules: the *front-end* and the *back-e
   
 #### The SLAM front-end
 
-If the front-end comprises all those algorithms that infer some estimate from the (camera) sensor, then the algorithms within the front-end are:
+The SLAM front-end consists of all the algorithms that infer some estimate from the (camera) sensor data. These algorithms are essential for processing raw sensor inputs into meaningful information that can be used for localization and mapping. The primary components of the SLAM front-end are:
 - *Tracking* is the process of continuously estimating the robot's position and orientation (*pose*) relative to its surroundings. It is also referred to as *visual odometry*.
 - *Loop detection*, also known as loop closure, is the process of recognizing previously visited locations to correct accumulated errors in the map and the robot's pose estimate. *Relocalization* is closely related and refers to the ability of the system to recover from tracking failures by identifying known locations. 
+
+### Tracking or Visual Odometry
+
+
+|                    |            Keypoints           |     Gradient Pixels    |     All Pixels    |
+|-------------------:|:------------------------------:|:----------------------:|:-----------------:|
+| Reprojection error | Indirect or feature-based SLAM |           N/A          |        N/A        |
+|  Photometric error |       Sparse direct SLAM       | Semi-dense direct SLAM | Dense direct SLAM |
