@@ -43,6 +43,16 @@ The SLAM front-end consists of all the algorithms that infer some estimate from 
 ### Tracking or Visual Odometry
 
 
+While the overall objective of SLAM is to estimate a globally consistent camera trajectory within a map, the tracking thread incrementally obtains an estimate of the local trajectory. This process, often referred to as Visual Odometry (VO), involves calculating the camera's motion by analyzing changes in the captured images over time. Depending on how motion is estimated from adjacent image frames, we can classify the methods for visual tracking as *direct* or *indirect*:
+
+- Direct methods estimate the motion from the intensity information of the pixels in the image. The estimate is obtained by optimizing the photometric error. Depending on the pixels selected for the optimization, direct methods can be classified as:
+  - *Sparse*, if only sparse keypoints are considered,
+  - *Semi-dense*, if all pixels with high gradients are included, or
+  - *Dense* if all pixels are included.
+- Indirect methods, also known as *feature-based* methods, rely on extracting and matching features or keypoints between frames to estimate motion. This computation is based on the optimization of the reprojection error.
+
+Thus, SLAM algorithms are often named after the error function that is being optimized and the kind of information (pixels/Keypoints) that is used in such optimization:
+
 |                    |            Keypoints           |     Gradient Pixels    |     All Pixels    |
 |-------------------:|:------------------------------:|:----------------------:|:-----------------:|
 | Reprojection error | Indirect or feature-based SLAM |           N/A          |        N/A        |
