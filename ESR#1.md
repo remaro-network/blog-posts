@@ -11,3 +11,18 @@ Imagine that you are a biology professor specializing in butterflies. One day, o
 Ideally, deep learning models should do this: give a prediction along with a warning about their knowledge—or lack thereof—about the input pattern.
 
 In this post, we will discuss the uncertainties of deep learning models' predictions and how you can use them to your advantage.
+
+## What causes the uncertainties in the predictions
+
+The uncertainties in predictions, also called predictive uncertainties, can be divided into two types:[^1]
+* Epistemic Uncertainty
+    * This is due to the model itself and reflects its lack of knowledge. Given more data about the patterns that the model doesn't know, this uncertainty decreases.
+* Aleatoric Uncertainty
+    * This is the uncertainty inherent in the data itself and can be caused, for example, by noise in the sensor that captures the data. This uncertainty will not decrease even with more data.
+
+## How to measure the epistemic uncertainty
+
+## Taking advabtage of the uncertainties
+
+## References 
+[^1]: [Kendall, Alex, and Yarin Gal. "What uncertainties do we need in bayesian deep learning for computer vision?." Advances in neural information processing systems 30 (2017).](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://proceedings.neurips.cc/paper_files/paper/2017/file/2650d6089a6d640c5e85b2b88265dc2b-Paper.pdf)
