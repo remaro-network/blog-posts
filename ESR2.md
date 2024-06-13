@@ -51,6 +51,8 @@ While the overall objective of SLAM is to estimate a globally consistent camera 
   - *Dense* if all pixels are included.
 - Indirect methods, also known as *feature-based* methods, rely on extracting and matching features or keypoints between frames to estimate motion. This computation is based on the optimization of the reprojection error.
 
+![alt text](media/geometric_chicken.png)
+
 Thus, SLAM algorithms are often named after the error function that is being optimized and the kind of information (pixels/Keypoints) that is used in such optimization:
 
 |                    |            Keypoints           |     Gradient Pixels    |     All Pixels    |
