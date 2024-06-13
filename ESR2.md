@@ -12,5 +12,6 @@ SLAM, or Simultaneous Localization and Mapping, is a fundamental method enabling
 
 You may have noticed that to determine your location (where am I?), you first need to understand your surroundings (what does the environment around me look like?). Conversely, to map the environment, you must know your position within it. That is commonly known as *the chicken and egg problem* in SLAM.
 
+![chicken and egg](media/chicken_n_egg.png)
 
-<!-- It defines a state estimation problem in which an autonomous system must determine its location in the environment while generating a representation of it as a map. -->
+Formally speaking, *SLAM defines  a state estimation problem in which an autonomous system must determine its location in the environment while generating a representation of it as a map*.
