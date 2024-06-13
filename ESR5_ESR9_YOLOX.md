@@ -10,8 +10,7 @@ In this context, deep learning (DL) based computer vision offers a promising sol
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/YoloX-Model.png" alt="YOLOX-ViT Model Architecture" style="width:100%;">
-  <figcaption>Figure 2: YOLOX-ViT Model Architecture.
-  </figcaption>
+   <div style="font-size: 14px; color: gray;"> Figure 1: YOLOX-ViT Model Architecture. </div>
 </figure>
 </div>
 
@@ -20,11 +19,9 @@ YOLOX-ViT enhances the YOLOX model by integrating a vision transformer layer (Vi
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/VIT.png" alt="Visual Transformer layer" style="width:80%;">
-  <figcaption>Figure 4: Visual Transformer Layer.
-  </figcaption>
+   <div style="font-size: 14px; color: gray;"> Figure 2: Visual Transformer Layer. </div>
 </figure>
 </div>
-
 
 ### Knowledge Distillation
 Knowledge distillation (KD) is employed to transfer knowledge from a larger, well-trained model (teacher) to a smaller model (student), using a combined loss function that incorporates both hard and soft loss components. This process allows the smaller model to learn from the nuanced behaviors of the larger model, improving its performance while maintaining a reduced size.
@@ -34,8 +31,7 @@ The KD process in YOLOX-ViT involves computing distinct loss functions for each 
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/KD_GA.png" alt="Knowledge Distillation" style="width:50%;">
-  <figcaption>Figure 1: Visualizating the Knowledge Distillation Process in YOLOX-ViT.
-  </figcaption>
+   <div style="font-size: 14px; color: gray;">Figure 3: Visualizating the Knowledge Distillation Process in YOLOX-ViT.</div>
 </figure>
 </div>
 
@@ -64,8 +60,8 @@ The source code for knowledge distillation in YOLOX-ViT is available at [https:/
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/Architecture-Explanation.png" alt="Architecture Block Explanations" style="width:100%;">
-  <figcaption>Figure 3: Architecture Block Explanations.
-  </figcaption>
+  <div style="font-size: 14px; color: gray;">Figure 3: Architecture Block Explanations.
+  </div>
 </figure>
 </div>
 
