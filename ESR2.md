@@ -28,6 +28,14 @@ This blog post will introduce and survey visual SLAM, a SLAM approach based on u
 
 SLAM is a complex method, and many different approaches have been developed to solve it. This has led to a very wide terminology to define all the different SLAM taxonomies, as well as the algorithms that comprise it. This vocabulary can be intricate for the researcher new to the subject, and it was certainly complicated for me in my early days. The motivation of this blog post, and the paper that it's based on, is to help you get introduced to this new vocabulary.
 
-First of all, we can divide SLAM in two modules: the *front-end* and the *back-end*.
-
 ![The SLAM vocabulary](media/slam_vocab.png)
+
+First of all, we can divide SLAM in two modules: the *front-end* and the *back-end*. In short:
+- The front-end infers estimates from the sensors. 
+- The back-end optimizes the estimates from the front-end.
+  
+#### The SLAM front-end
+
+If the front-end comprises all those algorithms that infer some estimate from the (camera) sensor, then the algorithms within the front-end are:
+- *Tracking* is the process of continuously estimating the robot's position and orientation (*pose*) relative to its surroundings. It is also referred to as *visual odometry*.
+- *Loop detection*, also known as loop closure, is the process of recognizing previously visited locations to correct accumulated errors in the map and the robot's pose estimate. *Relocalization* is closely related and refers to the ability of the system to recover from tracking failures by identifying known locations. 
