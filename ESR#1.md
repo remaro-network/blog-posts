@@ -12,7 +12,7 @@ Ideally, deep learning models should do this: give a prediction along with a war
 
 In this post, we will discuss the uncertainties of deep learning models' predictions and how you can use them to your advantage.
 
-![blog_post2](https://github.com/remaro-network/blog-posts/assets/58445878/b4e523e2-0d6f-481c-914e-54f7b248858f)
+![blog_post2](https://github.com/remaro-network/blog-posts/assets/58445878/6f70a90d-d43d-49c8-b944-2208dea52810)
 
 
 ## What causes the uncertainties in the predictions
@@ -36,7 +36,42 @@ The predictive uncertainty of deep learning predictions can be estimated using d
 
 ## MC-Dropout for epistemic uncertainty prediction
 
-## Taking advabtage of the uncertainties
+MC-Dropout is a widely used method due its easy implementation in models that contain dropout layers. In the next paragraphs we will give more explanation on how it works and how it can be implemented.
+
+Usually, dropout layers are used for preventing overfitting during training. Nevertheless, if this layers are allowed during inference, the uncertainty of the predictions can be assessed. Because the dropout layers randomly drops neuros of the model under a certain probability, each time that **the same input** is forward passed through the model a possibly different result is obtained. If the model is well trained and has enough knowledge about the input pattern, the outputs are going to be equal or numerically very close to each other. In case the model does not have enough knowledge about the input pattern, the outputs of each forward pass of the same input are going to result in very different outputs.
+
+For calculating the uncertainty, the following steps are performed:
+1. Allow the dropout layers;
+2. Fowardpass the same input many times (_T_ times) through the deep learning model;
+
+<img src="https://github.com/remaro-network/blog-posts/assets/58445878/28fceb1e-be03-464a-be4b-5f18f132316e" alt="1"  height="200"><br><br>
+
+
+<img src="https://github.com/remaro-network/blog-posts/assets/58445878/3aebcad0-4b51-418f-b98e-cf8241571e34" alt="2"  height="200"><br><br>
+
+
+<img src="https://github.com/remaro-network/blog-posts/assets/58445878/710793fd-45d5-4a43-8710-c8bcf4c622b8" alt="3"  height="200"><br><br>
+
+
+<img src="https://github.com/remaro-network/blog-posts/assets/58445878/ebb27b3b-5163-4774-a677-64b8e6e75fc5" alt="4"  height="200"><br><br>
+
+
+<img src="https://github.com/remaro-network/blog-posts/assets/58445878/0f1d57a0-af3b-4def-b49b-999df15e3c93" alt="5"  height="200"><br><br>
+
+
+4. A metric for measuting the uncertainty is applied using the output results.
+
+### Metrics for calculating the Uncertainty
+
+* Mutual Information
+* Entropy
+* Variation Ratio
+* Total Variance
+
+## Details to keep in mind 
+
+
+## Taking advantage of the uncertainties
 
 ## References 
 [^1]: [Kendall, Alex, and Yarin Gal. "What uncertainties do we need in bayesian deep learning for computer vision?." Advances in neural information processing systems 30 (2017).](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://proceedings.neurips.cc/paper_files/paper/2017/file/2650d6089a6d640c5e85b2b88265dc2b-Paper.pdf)
