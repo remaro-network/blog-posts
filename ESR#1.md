@@ -12,26 +12,27 @@ Ideally, deep learning models should do this: give a prediction along with a war
 
 In this post, we will discuss the uncertainties of deep learning models' predictions and how you can use them to your advantage.
 
-![blog_post](https://github.com/remaro-network/blog-posts/assets/58445878/13a353e0-6078-4fcb-99e4-a9488e258bb8)
+![blog_post2](https://github.com/remaro-network/blog-posts/assets/58445878/b4e523e2-0d6f-481c-914e-54f7b248858f)
 
 
 ## What causes the uncertainties in the predictions
 
 The uncertainties in predictions, also called predictive uncertainties, can be divided into two types:[^1]
-* Epistemic Uncertainty
+* **Epistemic Uncertainty**
     * This is due to the model itself and reflects its lack of knowledge. Given more data about the patterns that the model doesn't know, this uncertainty decreases.
-* Aleatoric Uncertainty
+* **Aleatoric Uncertainty**
     * This is the uncertainty inherent in the data itself and can be caused, for example, by noise in the sensor that captures the data. This uncertainty will not decrease even with more data.
+
 
 ## How to measure the predictive uncertainty
 
-The predictive uncertainty of the deep learning predictions can be estimated using different techniques, such as Monte Carlo Dropout (MC-Dropout), Deep Ensembles, Direct Modeling, and Error Propagation.
+The predictive uncertainty of deep learning predictions can be estimated using different techniques, such as Monte Carlo Dropout (MC-Dropout), Deep Ensembles, Direct Modeling, and Error Propagation[^2].
 
-* Direct Modeling treats the uncertainty as an output of the model. In this case, the model's head contains neurons to predict the uncertainty and the loss used for training is designed for the model to learn the uncertainty. For example, the model can predict the mean and variance of the target, where the variance corresponds to the uncertainty. A negative log-likelihood loss can be used to train the model to maximize the probability that the target is drawn from a normal distribution with the predicted mean and variance. This technique is used for leveraging the aleatoric uncertainty.
-* Error propagation is used for accessing both aleatoric and epistemic uncertainties. This method captures the model’s uncertainty by propagating the variance from each layer, which arises from layers such as dropout and batch normalization, to the model’s output.
-* Monte Carlo dropout (MC-dropout) is used for modeling the epistemic uncertainty. During inference, MC-Dropout allows the use of the dropout layers, and the same input sample is forward passed many times. The variance of the outputs of each forwardpass is used to assess the epistemic uncertainty.
-* Deep ensembles are also used for accessing the epistemic uncertainty. An input sample is passed through the ensemble, and the variance in the outputs of the neural networks that composes the ensemble is used
-to evaluate the uncertainty.
+* **Direct Modeling** treats the uncertainty as an output of the model. In this case, the model's head contains neurons to predict the uncertainty, and the loss used for training is designed for the model to learn the uncertainty. For example, the model can predict the mean and variance of the output, where the variance corresponds to the uncertainty. A negative log-likelihood loss can be used to train the model to maximize the probability that the output is drawn from a normal distribution with the predicted mean and variance. This technique leverages aleatoric uncertainty.
+* **Error Propagation** is used for assessing both aleatoric and epistemic uncertainties. This method captures the model’s uncertainty by propagating the variance from each layer, which arises from layers such as dropout and batch normalization, to the model’s output.
+* **MC-Dropout** is used for modeling epistemic uncertainty. During inference, MC-Dropout allows the use of the dropout layers, and the same input sample is forward-passed many times. The variance of the outputs of each forward pass is used to assess epistemic uncertainty.
+* **Deep Ensembles** are also used for assessing epistemic uncertainty. An input sample is passed through the ensemble, and the variance in the outputs of the neural networks that compose the ensemble is used to evaluate the uncertainty.
+
 
 ## MC-Dropout for epistemic uncertainty prediction
 
@@ -39,3 +40,4 @@ to evaluate the uncertainty.
 
 ## References 
 [^1]: [Kendall, Alex, and Yarin Gal. "What uncertainties do we need in bayesian deep learning for computer vision?." Advances in neural information processing systems 30 (2017).](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://proceedings.neurips.cc/paper_files/paper/2017/file/2650d6089a6d640c5e85b2b88265dc2b-Paper.pdf)
+[^2]: [Feng, Di, et al. "A review and comparative study on probabilistic object detection in autonomous driving." IEEE Transactions on Intelligent Transportation Systems 23.8 (2021): 9961-9980.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9525313&casa_token=8RA6XUdmNUEAAAAA:t9KrRgd3RRbMIMjXQtaOP2oxw28jWgOTqn5UvqJ7EF6HrJNf7QivccRpkkw70kWhynwM2Lph&tag=1)
