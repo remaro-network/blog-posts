@@ -6,7 +6,6 @@ Exploring the oceanic environment has become increasingly important due to vario
 In this context, deep learning (DL) based computer vision offers a promising solution for real-time detection. Yet, the large size of standard DL models poses challenges for AUVs concerning power consumption, memory allocation, and real-time processing needs. This paper introduces YOLOX-ViT, an advanced object detection model incorporating a vision transformer layer and utilizing knowledge distillation to reduce model size without sacrificing performance.
 
 ### YOLOX-ViT Model
-YOLOX-ViT enhances the YOLOX model by integrating a vision transformer layer (ViT) between the backbone and neck, significantly improving feature extraction capabilities. The ViT layer is configured with 4 multi-head self-attention (MHSA) sub-layers, combining the spatial hierarchy of CNNs with the global context of transformers. This integration enhances the model's ability to detect objects in complex underwater environments.
 
 <div style="text-align: center;">
 <figure>
@@ -16,17 +15,11 @@ YOLOX-ViT enhances the YOLOX model by integrating a vision transformer layer (Vi
 </figure>
 </div>
 
-<div style="text-align: center;">
-<figure>
-  <img src="./media/KD/Architecture-Explanation.png" alt="Architecture Block Explanations" style="width:100%;">
-  <figcaption>Figure 3: Architecture Block Explanations.
-  </figcaption>
-</figure>
-</div>
+YOLOX-ViT enhances the YOLOX model by integrating a vision transformer layer (ViT) between the backbone and neck, significantly improving feature extraction capabilities. The ViT layer is configured with 4 multi-head self-attention (MHSA) sub-layers, combining the spatial hierarchy of CNNs with the global context of transformers. This integration enhances the model's ability to detect objects in complex underwater environments.
 
 <div style="text-align: center;">
 <figure>
-  <img src="./media/KD/VIT.png" alt="Visual Transformer layer" style="width:100%;">
+  <img src="./media/KD/VIT.png" alt="Visual Transformer layer" style="width:80%;">
   <figcaption>Figure 4: Visual Transformer Layer.
   </figcaption>
 </figure>
@@ -65,6 +58,16 @@ The integration of a visual transformer layer and the application of knowledge d
 
 The source code for knowledge distillation in YOLOX-ViT is available at [https://github.com/remaro-network/KD-YOLOX-ViT](https://github.com/remaro-network/KD-YOLOX-ViT).
 
+
+### Additional Material
+
+<div style="text-align: center;">
+<figure>
+  <img src="./media/KD/Architecture-Explanation.png" alt="Architecture Block Explanations" style="width:100%;">
+  <figcaption>Figure 3: Architecture Block Explanations.
+  </figcaption>
+</figure>
+</div>
 
 ## Enhancing Model Robustness with Adversarial Examples
 
