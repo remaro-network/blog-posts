@@ -70,7 +70,7 @@ In this work, we aim to achieve two main objectives: improving the accuracy and 
 
 ## Knowledge Distillation in YOLOX-ViT for Side-Scan Sonar Object Detection
 
-This part of the blog post is based on the paper:
+This part of the blog post is based on the [paper](https://arxiv.org/abs/2403.09313):
 
 >Aubard, M., Antal, L., Madureira, A., & Ábrahám, E. (2024). Knowledge Distillation in YOLOX-ViT for Side-Scan Sonar Object Detection. 
 >ArXiv, abs/2403.09313.
@@ -120,15 +120,14 @@ Using knowledge distillation, YOLOX-ViT-Nano learns directly from the logits of 
 The lack of dedicated computing resources such as GPUs is a common hindrance in deploying computer vision models in production. Large models require dedicated hardware to run in real time, while small models, though faster, suffer from reduced accuracy. Knowledge distillation allows small models to learn from larger ones, improving their accuracy while maintaining efficiency for real-time deployment on CPUs.
 
 ### Sonar Wall Detection Dataset (SWDD)
-A new side-scan sonar (SSS) image dataset, the Sonar Wall Detection Dataset (SWDD), is introduced. Collected in Porto de Leixões harbor using a Klein 3500 sonar on a light autonomous underwater vehicle (LAUV), the dataset includes 216 images along harbor walls. Data augmentation techniques such as noise addition, horizontal flips, and combined transformations are used to enhance the dataset's robustness.
+For conductiong experiments, we introduce a new side-scan sonar (SSS) image dataset, the Sonar Wall Detection Dataset (SWDD). Collected in Porto de Leixões harbor using a Klein 3500 sonar on a light autonomous underwater vehicle (LAUV), the dataset includes 216 images along harbor walls. Data augmentation techniques such as noise addition, horizontal flips, and combined transformations are used to enhance the dataset's robustness.
 
-The dataset features two classes, "Wall" and "NoWall," with 2,616 labeled samples. The images are scaled to 640 × 640 for compatibility with computer vision algorithms, and the dataset is publicly accessible for research purposes.
+SWDD is completely open-access and available online on Zenodo. Accessing is possible at the following [LINK](https://zenodo.org/records/10528135).
+
+The dataset features two classes, "Wall" and "NoWall," with 2,616 labeled samples. The images are scaled to 640 × 640 for compatibility with computer vision algorithms, coupled with the detection labels in YOLOX and MS-COCO format.
 
 ### Experimental Evaluation
 The experimental evaluation of YOLOX-ViT involves training and validating the model on real-world data, including a detailed video analysis. Metrics such as true positives (TP), false positives (FP), precision (Pr), average precision at 50% IoU (AP50), and overall average precision (AP) are used to assess performance. The results demonstrate the effectiveness of YOLOX-ViT and the KD approach in reducing false positives and improving detection accuracy in underwater environments.
-
-### Broader Implications and Limitations
-The findings from this study have broader implications beyond underwater robotics, particularly in domains like autonomous land vehicles, medical imaging, and surveillance systems. However, potential drawbacks include increased training complexity, sensitivity to teacher model quality, and limited transferability across different datasets or tasks. Advancements in vision transformers also impact future developments in computer vision by enhancing feature extraction and global context understanding.
 
 ### Conclusion
 The integration of a visual transformer layer and the application of knowledge distillation in YOLOX-ViT provide a significant advancement in object detection for underwater robotics. The model achieves high accuracy with a reduced size, making it suitable for real-time implementation on AUVs. The introduced Sonar Wall Detection Dataset (SWDD) further supports research in this domain, offering valuable data for future studies.
@@ -141,7 +140,7 @@ The source code for knowledge distillation in YOLOX-ViT is available at [https:/
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/Architecture-Explanation.png" alt="Architecture Block Explanations" style="width:100%;">
-  <div style="font-size: 14px; color: gray;">Figure 8: Architecture Block Explanations.
+  <div style="font-size: 14px; color: gray;">Figure 8: Explanation of the building blocks of YOLOX-ViT.
   </div>
 </figure>
 </div>
