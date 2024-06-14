@@ -44,12 +44,10 @@ For calculating the uncertainty, the following steps are performed:
 1. Allow the dropout layers;
 2. Fowardpass the same input many times (_T_ times) through the deep learning model;
 
+<img src="https://github.com/remaro-network/blog-posts/assets/58445878/210b0370-e2b9-4c97-b2e3-8150af5232ed" alt="t1"  height="200"><br><br>
 
 
-<img src="https://github.com/remaro-network/blog-posts/assets/58445878/dfea2800-8d17-4f51-9c32-86f41cc189d6" alt="t1"  height="200"><br><br>
-
-
-<img src="https://github.com/remaro-network/blog-posts/assets/58445878/3aebcad0-4b51-418f-b98e-cf8241571e34" alt="2"  height="200"><br><br>
+<img src="https://github.com/remaro-network/blog-posts/assets/58445878/f4897ecb-a82f-4339-9b3c-85867a2bbfcb" alt="t2"  height="200"><br><br>
 
 
 <img src="https://github.com/remaro-network/blog-posts/assets/58445878/710793fd-45d5-4a43-8710-c8bcf4c622b8" alt="3"  height="200"><br><br>
@@ -61,7 +59,7 @@ For calculating the uncertainty, the following steps are performed:
 <img src="https://github.com/remaro-network/blog-posts/assets/58445878/0f1d57a0-af3b-4def-b49b-999df15e3c93" alt="5"  height="200"><br><br>
 
 
-4. A metric for measuting the uncertainty is applied using the output results.
+4. Measure the uncertainty of the outputs applying some metric to the predicted values.
 
 ### Metrics for calculating the Uncertainty
 
