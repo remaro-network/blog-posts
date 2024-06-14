@@ -49,6 +49,10 @@ While the overall objective of SLAM is to estimate a globally consistent camera 
   - *Sparse*, if only sparse keypoints are considered,
   - *Semi-dense*, if all pixels with high gradients are included, or
   - *Dense* if all pixels are included.
+  
+  
+![alt text](media/direct_geometric_chicken.png)  
+
 - Indirect methods, also known as *feature-based* methods, rely on extracting and matching features or keypoints between frames to estimate motion. This computation is based on the optimization of the reprojection error.
 
 ![alt text](media/geometric_chicken.png)
