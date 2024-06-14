@@ -55,7 +55,7 @@ Object detection (see Figure 2) is a fundamental task in computer vision, aiming
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/SWDD_bbox.jpeg" alt="YOLOX-ViT Model Architecture" style="width:50%;">
-   <div style="font-size: 14px; color: gray;"> Figure 2: An example of the output of an object detection model. The blue boxes show the predicted bounding boxes of a model, including an object class (in this case wall) and confidence score, expressed as a percentage.</div>
+   <div style="font-size: 14px; color: gray;"> Figure 4: An example of the output of an object detection model. The blue boxes show the predicted bounding boxes of a model, including an object class (in this case wall) and confidence score, expressed as a percentage.</div>
 </figure> 
 </div>
 
@@ -70,7 +70,7 @@ In this work, we aim to achieve two main objectives: improving the accuracy and 
 
 ## Knowledge Distillation in YOLOX-ViT for Side-Scan Sonar Object Detection
 
-This part of the blog post is based on the paper:
+This part of the blog post is based on the [paper](https://arxiv.org/abs/2403.09313):
 
 >Aubard, M., Antal, L., Madureira, A., & Ábrahám, E. (2024). Knowledge Distillation in YOLOX-ViT for Side-Scan Sonar Object Detection. 
 >ArXiv, abs/2403.09313.
@@ -85,28 +85,34 @@ In this context, deep learning (DL) based computer vision offers a promising sol
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/YoloX-Model.png" alt="YOLOX-ViT Model Architecture" style="width:100%;">
-   <div style="font-size: 14px; color: gray;"> Figure 4: YOLOX-ViT Model Architecture. </div>
+   <div style="font-size: 14px; color: gray;"> Figure 5: Model architecture of YOLOX-ViT. Further explanation of each block can be found in Figure 6 and 8.</div>
 </figure>
 </div>
 
-YOLOX-ViT enhances the YOLOX model by integrating a vision transformer layer (ViT) between the backbone and neck, significantly improving feature extraction capabilities. The ViT layer is configured with 4 multi-head self-attention (MHSA) sub-layers, combining the spatial hierarchy of CNNs with the global context of transformers. This integration enhances the model's ability to detect objects in complex underwater environments.
+YOLOX-ViT (see Figure 5) enhances the YOLOX model by integrating a vision transformer layer (ViT) between the backbone and neck, significantly improving feature extraction capabilities. The ViT layer is configured with 4 multi-head self-attention (MHSA) sub-layers, combining the spatial hierarchy of CNNs with the global context of transformers. This integration enhances the model's ability to detect objects in complex underwater environments.
 
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/VIT.png" alt="Visual Transformer layer" style="width:80%;">
-   <div style="font-size: 14px; color: gray;"> Figure 5: Visual Transformer Layer. </div>
+   <div style="font-size: 14px; color: gray;"> Figure 6: Illustration of the composition of the vision transformer layer (ViT). </div>
 </figure>
 </div>
 
 ### Knowledge Distillation
-Knowledge distillation (KD) is employed to transfer knowledge from a larger, well-trained model (teacher) to a smaller model (student), using a combined loss function that incorporates both hard and soft loss components. This process allows the smaller model to learn from the nuanced behaviors of the larger model, improving its performance while maintaining a reduced size.
+Knowledge distillation (KD) is employed to transfer knowledge from a larger, well-trained model (teacher) to a smaller model (student), using a combined loss function that incorporates both hard and soft loss components (this is visualized on Figure 7). This process allows the smaller model to learn from the nuanced behaviors of the larger model, improving its performance while maintaining a reduced size. Formally, the loss function can be expressed as:
 
-The KD process in YOLOX-ViT involves computing distinct loss functions for each output of the feature pyramid network (FPN), ensuring a comprehensive transfer of knowledge across classification, bounding box regression, and objectness scores. Both online and offline KD methods are explored, with the offline method reducing training time significantly. Using knowledge distillation, YOLOX-ViT-Nano learns directly from the logits of a pre-trained YOLOX-ViT-L model. This approach has shown a notable reduction in false positive detections by 20.35 points.
+$$
+\large \mathcal{L} = \lambda_{\text{hard}}\mathcal{L}_{\text{hard}} + \lambda_{\text{soft}}\mathcal{L}_{\text{soft}}
+$$
+
+The KD process in YOLOX-ViT involves computing distinct loss functions for each output of the feature pyramid network (FPN), ensuring a comprehensive transfer of knowledge across classification, bounding box regression, and objectness scores. Both online and offline KD methods are explored, with the offline method reducing training time significantly. For further information, we refer to the paper mentioned above. 
+
+Using knowledge distillation, YOLOX-ViT-Nano learns directly from the logits of a pre-trained YOLOX-ViT-L model. This approach has shown a notable reduction in false positive detections by **20.35%**.
 
 <div style="text-align: center;">
 <figure>
-  <img src="./media/KD/KD_GA.png" alt="Knowledge Distillation" style="width:50%;">
-   <div style="font-size: 14px; color: gray;">Figure 6: Visualization the Knowledge Distillation Process in YOLOX-ViT.</div>
+  <img src="./media/KD/KD_GA.png" alt="Knowledge Distillation" style="width:70%;">
+   <div style="font-size: 14px; color: gray;">Figure 7: Visualization the knowledge distillation process in YOLOX-ViT.</div>
 </figure>
 </div>
 
@@ -114,15 +120,14 @@ The KD process in YOLOX-ViT involves computing distinct loss functions for each 
 The lack of dedicated computing resources such as GPUs is a common hindrance in deploying computer vision models in production. Large models require dedicated hardware to run in real time, while small models, though faster, suffer from reduced accuracy. Knowledge distillation allows small models to learn from larger ones, improving their accuracy while maintaining efficiency for real-time deployment on CPUs.
 
 ### Sonar Wall Detection Dataset (SWDD)
-A new side-scan sonar (SSS) image dataset, the Sonar Wall Detection Dataset (SWDD), is introduced. Collected in Porto de Leixões harbor using a Klein 3500 sonar on a light autonomous underwater vehicle (LAUV), the dataset includes 216 images along harbor walls. Data augmentation techniques such as noise addition, horizontal flips, and combined transformations are used to enhance the dataset's robustness.
+For conductiong experiments, we introduce a new side-scan sonar (SSS) image dataset, the Sonar Wall Detection Dataset (SWDD). Collected in Porto de Leixões harbor using a Klein 3500 sonar on a light autonomous underwater vehicle (LAUV), the dataset includes 216 images along harbor walls. Data augmentation techniques such as noise addition, horizontal flips, and combined transformations are used to enhance the dataset's robustness.
 
-The dataset features two classes, "Wall" and "NoWall," with 2,616 labeled samples. The images are scaled to 640 × 640 for compatibility with computer vision algorithms, and the dataset is publicly accessible for research purposes.
+SWDD is completely open-access and available online on Zenodo. Accessing is possible at the following [LINK](https://zenodo.org/records/10528135).
+
+The dataset features two classes, "Wall" and "NoWall," with 2,616 labeled samples. The images are scaled to 640 × 640 for compatibility with computer vision algorithms, coupled with the detection labels in YOLOX and MS-COCO format.
 
 ### Experimental Evaluation
 The experimental evaluation of YOLOX-ViT involves training and validating the model on real-world data, including a detailed video analysis. Metrics such as true positives (TP), false positives (FP), precision (Pr), average precision at 50% IoU (AP50), and overall average precision (AP) are used to assess performance. The results demonstrate the effectiveness of YOLOX-ViT and the KD approach in reducing false positives and improving detection accuracy in underwater environments.
-
-### Broader Implications and Limitations
-The findings from this study have broader implications beyond underwater robotics, particularly in domains like autonomous land vehicles, medical imaging, and surveillance systems. However, potential drawbacks include increased training complexity, sensitivity to teacher model quality, and limited transferability across different datasets or tasks. Advancements in vision transformers also impact future developments in computer vision by enhancing feature extraction and global context understanding.
 
 ### Conclusion
 The integration of a visual transformer layer and the application of knowledge distillation in YOLOX-ViT provide a significant advancement in object detection for underwater robotics. The model achieves high accuracy with a reduced size, making it suitable for real-time implementation on AUVs. The introduced Sonar Wall Detection Dataset (SWDD) further supports research in this domain, offering valuable data for future studies.
@@ -135,7 +140,7 @@ The source code for knowledge distillation in YOLOX-ViT is available at [https:/
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/Architecture-Explanation.png" alt="Architecture Block Explanations" style="width:100%;">
-  <div style="font-size: 14px; color: gray;">Figure 7: Architecture Block Explanations.
+  <div style="font-size: 14px; color: gray;">Figure 8: Explanation of the building blocks of YOLOX-ViT.
   </div>
 </figure>
 </div>
