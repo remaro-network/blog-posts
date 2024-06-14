@@ -1,4 +1,4 @@
-![t2](https://github.com/remaro-network/blog-posts/assets/58445878/14483754-179d-4ffc-8b76-4aad883e4e3b)# Navigating the Unknown: How to Use Uncertainties in Deep Learning Predictions to Your Advantage
+# Navigating the Unknown: How to Use Uncertainties in Deep Learning Predictions to Your Advantage
 
 Some years ago, my former manager told me a phrase that would later make sense and guide my research interests for the next years: "I do not care that your model does not know everything, as long as I know what it does not know."
 
