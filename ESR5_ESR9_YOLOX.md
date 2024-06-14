@@ -1,4 +1,11 @@
+## Outline
+
 ## Knowledge Distillation in YOLOX-ViT for Side-Scan Sonar Object Detection
+
+This blog post is based on the paper:
+
+>Aubard, M., Antal, L., Madureira, A., & 'Abrah'am, E. (2024). Knowledge Distillation in YOLOX-ViT for Side-Scan Sonar Object Detection. 
+>ArXiv, abs/2403.09313.
 
 ### Introduction
 Exploring the oceanic environment has become increasingly important due to various underwater activities such as infrastructure development and archaeological explorations. Autonomous underwater vehicles (AUVs) play a crucial role in these tasks, enabling efficient data collection and underwater operations. However, the complex nature of underwater environments demands advanced decision-making capabilities and high situational awareness.
