@@ -19,9 +19,15 @@ Side-scan sonar (SSS), one of the most used type of sonar, emits sound waves tow
 </figure> 
 </div>
 
-Object detection is a fundamental task in computer vision, aiming to locate and classify objects within an image. However, applying object detection to sonar images poses unique challenges due to the distinct characteristics of sonar imagery, such as noise, low contrast, and complex underwater features.
+Object detection (see Figure 2) is a fundamental task in computer vision, aiming to locate and classify objects within an image. However, applying object detection to sonar images poses unique challenges due to the distinct characteristics of sonar imagery, such as noise, low contrast, and complex underwater features.
 
-!!!# put here the same image with detection on it and reference it 
+<div style="text-align: center;">
+<figure>
+  <img src="./media/KD/SWDD_bbox.jpeg" alt="YOLOX-ViT Model Architecture" style="width:50%;">
+   <div style="font-size: 14px; color: gray;"> Figure 2: An example of the output of an object detection model. The blue boxes show the predicted bounding boxes of a model, including an object class (in this case wall) and confidence score, expressed as a percentage.</div>
+</figure> 
+</div>
+
  
 Despite the advancements in object detection algorithms, there are significant limitations when applied to SSS images. Current models often need help with the variability and quality of sonar data, leading to suboptimal performance. Additionally, traditional object detection models are computationally intensive, which can be a bottleneck for real-time applications on resource-constrained AUVs.
 
@@ -33,9 +39,9 @@ In this work, we aim to achieve two main objectives: improving the accuracy and 
 
 ## Knowledge Distillation in YOLOX-ViT for Side-Scan Sonar Object Detection
 
-This blog post is based on the paper:
+This part of the blog post is based on the paper:
 
->Aubard, M., Antal, L., Madureira, A., & 'Abrah'am, E. (2024). Knowledge Distillation in YOLOX-ViT for Side-Scan Sonar Object Detection. 
+>Aubard, M., Antal, L., Madureira, A., & Ábrahám, E. (2024). Knowledge Distillation in YOLOX-ViT for Side-Scan Sonar Object Detection. 
 >ArXiv, abs/2403.09313.
 
 ### Introduction
