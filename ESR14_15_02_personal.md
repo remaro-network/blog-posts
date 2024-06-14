@@ -1,4 +1,4 @@
-# Personal
+# Your PhD journey
 
 Being a PhD student can be quite stressful—who would have guessed—and we all struggled with it at some point in our journey. As there are many different sources of stress, we also discovered different strategies to cope with it. We think that it is important to apply (some of) these strategies or find your own strategies to deal with stress. Being stressed for a long time can have a significant impact on your health and furthermore only makes your work harder and worse and your overall life suffers from it. 
 
@@ -24,8 +24,8 @@ Be aware, that the freedom that academia offers is only one side of the medal. T
 
 While piloting your way towards your PhD title, we often got so focused on our current work that it was hard to see the opportunities that were along our way. But these can be the things that make the longest-lasting impact. Our PhDs were at least three years of our life and we all developed over that time. You will have many offers to attend talks, courses, summer schools, outreach events and similar events. If you see something that catches your interest, something that seems like you can have some impact or something that will challenge your skills, do not hesitate to sign up for it. You want to improve your presentation skills? Sign up for an outreach event in a pub. You are tired of the food that your home country offers? Your colleague from the other end of the world is probably more than happy to share his or her favourite meal with you. You want to change how your university treats PhD students? There will be a PhD organisation you can join to raise your voice. These moments where you are driven by passion will be the moments where you will learn the most and you will have the most fun. We also experienced times when our PhD seemed to be only about surviving, but by embracing opportunities besides our project, we created moments that carried us through.
 
-Besides the general things that you can do to have an enjoable PhD journey, we also collected more specific advice in some of our other blog posts:
+Besides the general advice on your PhD journey that can hopefully help you to enjoy your PhD, we also collected more specific advice in some of our other blog posts:
 
-- [being a PhD student in an MSCA network](ESR14_15_01.md)
-- [your relationship with your supervisor](ESR14_15_03_supervision.md)
-- [insights about academia](ESR14_15_04_insights.md)
+- [Being a PhD student in an MSCA network](ESR14_15_01.md)
+- [Your relationship with your supervisor](ESR14_15_03_supervision.md)
+- [Insights](ESR14_15_04_insights.md)
