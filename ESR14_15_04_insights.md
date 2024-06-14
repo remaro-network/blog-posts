@@ -12,8 +12,8 @@ Doing a PhD has quite a big impact on your personal life, maybe more than other 
 
 However, your PhD can, of course, also have many positive impacts on your personal life, some of which we list here. Working independently on a research topic will help you both to be more independent in your life outside of academia and to trust yourself more. You will have to make many decisions, be it which research direction to pursue, which conference to submit to, which people to collaborate with, or which project to prioritise. Of course, there will be some decisions that you will not be happy with afterwards, but these will also help you to figure out what you want and what is important to you.
 
-Besides the insights that we got during our PhD, we also collected advice for your PhD journey some of our other blog posts:
+Besides the insights that we got during our PhD, we also collected advice for your PhD journey in some of our other blog posts:
 
-- [being a PhD student in an MSCA network](ESR14_15_01.md)
-- [general advice how to organize your PhD journey](ESR14_15_02_personal.md)
-- [your relationship with your supervisor](ESR14_15_03_supervision.md)
+- [Being a PhD student in an MSCA network](ESR14_15_01.md)
+- [General advice on your PhD journey](ESR14_15_02_personal.md)
+- [Your relationship with your supervisor](ESR14_15_03_supervision.md)

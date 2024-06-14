@@ -16,8 +16,8 @@ During the meetings with our supervisors, we realised that it is always good to 
 
 At the beginning of your PhD, it is important to align your and your supervisor’s expectations. Clarify what the requirements are for you to finish your PhD, both in terms of the number of publications and in terms of other requirements like teaching, supervision or obligatory coursework. Agree with your supervisor on a list of your responsibilities to not get surprised by unexpected tasks. You have a say in defining your tasks and can focus on improving your weaknesses as well as playing your strengths. The rights and duties of a PhD student vary from country to country and by the funding you get, but you should make sure that you know about them from the beginning. Later in the PhD, don’t be afraid of fighting for your rights.
 
-Besides the our advice for interacting with your supervisor, we also collected more advice in some of our other blog posts:
+Besides the advice on supervision, we also collected more advice in some of our other blog posts:
 
-- [being a PhD student in an MSCA network](ESR14_15_01.md)
-- [general advice how to organize your PhD journey](ESR14_15_02_personal.md)
-- [insights](ESR14_15_04_insights.md)
+- [Being a PhD student in an MSCA network](ESR14_15_01.md)
+- [General advice on your PhD journey](ESR14_15_02_personal.md)
+- [Insights](ESR14_15_04_insights.md)
