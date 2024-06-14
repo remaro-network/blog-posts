@@ -64,7 +64,15 @@ For calculating the uncertainty, the following steps are performed:
 * Variation Ratio
 * Total Variance
 
-## Details to keep in mind 
+## To keep in mind 
+
+The metrics explained above are applied to each output predicted. It means that for segmentation models, an uncertainty value needs to be calculated for each value predicted corresponding to the different parts (or pixels) of the image. An example is in the image bellow, that shows the uncertainties as a heatmap, where warmer colors (more yellow/red -ish) means higher uncertainty.
+
+<img src="https://github.com/remaro-network/blog-posts/assets/58445878/1695ec9c-1291-474c-add5-f2ef51002618" alt="heatmap ex"  height="200"><br><br>
+
+For some tasks, such as in active learning, you need to compare the amount uncertainties of predictions referent to different inputs. When dealing with segmentation, that a map of uncertainties is generated, this values need to be agreated somehow. A option for aggreating the uncertainty in this case are calculate the mean value of the uncertainties corresponding to a image.
+
+It is important to keep in mind that it could be the case that the predictions have high uncertainty only for a small region of the images, and averaging the uncertainties for the entire image could hide the importance of this high uncertainty. Another thing to observe is that predicition of different classes of objects have different levels of uncertainty, and not considering this different classes when averaging the results could also hide important information about the uncertainty of a predicted segmentation mask.
 
 
 ## Taking advantage of the uncertainties
