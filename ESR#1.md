@@ -44,7 +44,9 @@ For calculating the uncertainty, the following steps are performed:
 1. Allow the dropout layers;
 2. Fowardpass the same input many times (_T_ times) through the deep learning model;
 
-<img src="https://github.com/remaro-network/blog-posts/assets/58445878/28fceb1e-be03-464a-be4b-5f18f132316e" alt="1"  height="200"><br><br>
+
+
+<img src="https://github.com/remaro-network/blog-posts/assets/58445878/dfea2800-8d17-4f51-9c32-86f41cc189d6" alt="t1"  height="200"><br><br>
 
 
 <img src="https://github.com/remaro-network/blog-posts/assets/58445878/3aebcad0-4b51-418f-b98e-cf8241571e34" alt="2"  height="200"><br><br>
