@@ -60,6 +60,7 @@ To calculate the uncertainty, the following steps are performed:
 
 ### Metrics for calculating the Uncertainty
 
+Many different metrics can be used for calculating the uncertainties of the predictions, based on the values of the predicted outputs.[^3] Some examples are:
 * Mutual Information
 * Entropy
 * Variation Ratio
@@ -85,7 +86,7 @@ Incorrect predictions tend to have higher uncertainties than correct predictions
 
 Another use case is to guide the selection of data to be labeled when creating a dataset for training a model. Active learning is a family of methods that aim to select a small subset of a dataset that can be used for training a model to achieve performance similar to the performance achieved by the entire dataset. Being able to select a smaller dataset for labeling and training the model has the huge advantage of saving time and money with the tedious task of labeling datasets. For selecting the images, an acquisition function needs to be defined. One option is to use uncertainty as the acquisition function.
 
-An example of an active learning application is the research that we developed for selecting a small subset of images for training a semantic segmentation model for underwater pipeline images. The image below explains the methodology utilized in our research.[^3]
+An example of an active learning application is the research that we developed for selecting a small subset of images for training a semantic segmentation model for underwater pipeline images. The image below explains the methodology utilized in our research.[^4]
 
 
 <div align="center">
@@ -129,4 +130,6 @@ We also released a dataset for underwater pipeline segmentation, which can be do
 ## References 
 [^1]: [Kendall, Alex, and Yarin Gal. "What uncertainties do we need in bayesian deep learning for computer vision?." Advances in neural information processing systems 30 (2017).](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://proceedings.neurips.cc/paper_files/paper/2017/file/2650d6089a6d640c5e85b2b88265dc2b-Paper.pdf)
 [^2]: [Feng, Di, et al. "A review and comparative study on probabilistic object detection in autonomous driving." IEEE Transactions on Intelligent Transportation Systems 23.8 (2021): 9961-9980.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9525313&casa_token=8RA6XUdmNUEAAAAA:t9KrRgd3RRbMIMjXQtaOP2oxw28jWgOTqn5UvqJ7EF6HrJNf7QivccRpkkw70kWhynwM2Lph&tag=1)
-[^3]: [Ribeiro Marnet, Luiza, et al. "Uncertainty Driven Active Learning for Image Segmentation in Underwater Inspection." International Conference on Robotics, Computer Vision and Intelligent Systems. Cham: Springer Nature Switzerland, 2024.](https://link.springer.com/chapter/10.1007/978-3-031-59057-3_5)
+[^3]: [Gal, Yarin. "Uncertainty in deep learning." (2016).](chrome-extension://mhnlakgilnojmhinhkckjpncpbhabphi/pages/pdf/web/viewer.html?file=https%3A%2F%2Fwww.cs.ox.ac.uk%2Fpeople%2Fyarin.gal%2Fwebsite%2Fthesis%2Fthesis.pdf)
+[^4]: [Ribeiro Marnet, Luiza, et al. "Uncertainty Driven Active Learning for Image Segmentation in Underwater Inspection." International Conference on Robotics, Computer Vision and Intelligent Systems. Cham: Springer Nature Switzerland, 2024.](https://link.springer.com/chapter/10.1007/978-3-031-59057-3_5)
+
