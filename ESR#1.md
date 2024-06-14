@@ -36,13 +36,14 @@ The predictive uncertainty of deep learning predictions can be estimated using d
 
 ## MC-Dropout for epistemic uncertainty prediction
 
-MC-Dropout is a widely used method due its easy implementation in models that contain dropout layers. In the next paragraphs we will give more explanation on how it works and how it can be implemented.
+MC-Dropout is a widely used method due to its easy implementation in models that contain dropout layers. In the following paragraphs, we will explain how it works and how it can be implemented.
 
-Usually, dropout layers are used for preventing overfitting during training. Nevertheless, if this layers are allowed during inference, the uncertainty of the predictions can be assessed. Because the dropout layers randomly drops neuros of the model under a certain probability, each time that **the same input** is forward passed through the model a possibly different result is obtained. If the model is well trained and has enough knowledge about the input pattern, the outputs are going to be equal or numerically very close to each other. In case the model does not have enough knowledge about the input pattern, the outputs of each forward pass of the same input are going to result in very different outputs.
+Usually, dropout layers are used to prevent overfitting during training. However, if these layers are allowed during inference, the uncertainty of the predictions can be assessed. Because the dropout layers randomly drop out neurons in the model with a certain probability, each time **the same input** is forward passed through the model, a potentially different result is obtained. If the model is well-trained and has enough knowledge about the input pattern, the outputs will be equal or numerically very close to each other. If the model does not have enough knowledge about the input pattern, the outputs of each forward pass of the same input will result in very different outputs.
 
-For calculating the uncertainty, the following steps are performed:
+
+To calculate the uncertainty, the following steps are performed:
 1. Allow the dropout layers;
-2. Fowardpass the same input many times (_T_ times) through the deep learning model;
+2. Foward pass the same input many times (_T_ times) through the deep learning model;
 
 <img src="https://github.com/remaro-network/blog-posts/assets/58445878/210b0370-e2b9-4c97-b2e3-8150af5232ed" alt="t1"  height="200"><br><br>
 
@@ -55,7 +56,7 @@ For calculating the uncertainty, the following steps are performed:
 
 <img src="https://github.com/remaro-network/blog-posts/assets/58445878/94b28f2a-4e74-423b-8e16-496c83f45e26" alt="t_T"  height="200"><br><br>
 
-4. Measure the uncertainty of the outputs applying some metric to the predicted values.
+3. Measure the uncertainties of the outputs by applying some metric to the values predicted by the model.
 
 ### Metrics for calculating the Uncertainty
 
