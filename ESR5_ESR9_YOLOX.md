@@ -55,7 +55,7 @@ Object detection (see Figure 2) is a fundamental task in computer vision, aiming
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/SWDD_bbox.jpeg" alt="YOLOX-ViT Model Architecture" style="width:50%;">
-   <div style="font-size: 14px; color: gray;"> Figure 2: An example of the output of an object detection model. The blue boxes show the predicted bounding boxes of a model, including an object class (in this case wall) and confidence score, expressed as a percentage.</div>
+   <div style="font-size: 14px; color: gray;"> Figure 4: An example of the output of an object detection model. The blue boxes show the predicted bounding boxes of a model, including an object class (in this case wall) and confidence score, expressed as a percentage.</div>
 </figure> 
 </div>
 
@@ -85,28 +85,34 @@ In this context, deep learning (DL) based computer vision offers a promising sol
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/YoloX-Model.png" alt="YOLOX-ViT Model Architecture" style="width:100%;">
-   <div style="font-size: 14px; color: gray;"> Figure 4: YOLOX-ViT Model Architecture. </div>
+   <div style="font-size: 14px; color: gray;"> Figure 5: Model architecture of YOLOX-ViT. Further explanation of each block can be found in Figure 6 and 8.</div>
 </figure>
 </div>
 
-YOLOX-ViT enhances the YOLOX model by integrating a vision transformer layer (ViT) between the backbone and neck, significantly improving feature extraction capabilities. The ViT layer is configured with 4 multi-head self-attention (MHSA) sub-layers, combining the spatial hierarchy of CNNs with the global context of transformers. This integration enhances the model's ability to detect objects in complex underwater environments.
+YOLOX-ViT (see Figure 5) enhances the YOLOX model by integrating a vision transformer layer (ViT) between the backbone and neck, significantly improving feature extraction capabilities. The ViT layer is configured with 4 multi-head self-attention (MHSA) sub-layers, combining the spatial hierarchy of CNNs with the global context of transformers. This integration enhances the model's ability to detect objects in complex underwater environments.
 
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/VIT.png" alt="Visual Transformer layer" style="width:80%;">
-   <div style="font-size: 14px; color: gray;"> Figure 5: Visual Transformer Layer. </div>
+   <div style="font-size: 14px; color: gray;"> Figure 6: Illustration of the composition of the vision transformer layer (ViT). </div>
 </figure>
 </div>
 
 ### Knowledge Distillation
-Knowledge distillation (KD) is employed to transfer knowledge from a larger, well-trained model (teacher) to a smaller model (student), using a combined loss function that incorporates both hard and soft loss components. This process allows the smaller model to learn from the nuanced behaviors of the larger model, improving its performance while maintaining a reduced size.
+Knowledge distillation (KD) is employed to transfer knowledge from a larger, well-trained model (teacher) to a smaller model (student), using a combined loss function that incorporates both hard and soft loss components (this is visualized on Figure 7). This process allows the smaller model to learn from the nuanced behaviors of the larger model, improving its performance while maintaining a reduced size. Formally, the loss function can be expressed as:
 
-The KD process in YOLOX-ViT involves computing distinct loss functions for each output of the feature pyramid network (FPN), ensuring a comprehensive transfer of knowledge across classification, bounding box regression, and objectness scores. Both online and offline KD methods are explored, with the offline method reducing training time significantly. Using knowledge distillation, YOLOX-ViT-Nano learns directly from the logits of a pre-trained YOLOX-ViT-L model. This approach has shown a notable reduction in false positive detections by 20.35 points.
+$$
+\large \mathcal{L} = \lambda_{\text{hard}}\mathcal{L}_{\text{hard}} + \lambda_{\text{soft}}\mathcal{L}_{\text{soft}}
+$$
+
+The KD process in YOLOX-ViT involves computing distinct loss functions for each output of the feature pyramid network (FPN), ensuring a comprehensive transfer of knowledge across classification, bounding box regression, and objectness scores. Both online and offline KD methods are explored, with the offline method reducing training time significantly. For further information, we refer to the paper mentioned above. 
+
+Using knowledge distillation, YOLOX-ViT-Nano learns directly from the logits of a pre-trained YOLOX-ViT-L model. This approach has shown a notable reduction in false positive detections by **20.35%**.
 
 <div style="text-align: center;">
 <figure>
-  <img src="./media/KD/KD_GA.png" alt="Knowledge Distillation" style="width:50%;">
-   <div style="font-size: 14px; color: gray;">Figure 6: Visualization the Knowledge Distillation Process in YOLOX-ViT.</div>
+  <img src="./media/KD/KD_GA.png" alt="Knowledge Distillation" style="width:70%;">
+   <div style="font-size: 14px; color: gray;">Figure 7: Visualization the knowledge distillation process in YOLOX-ViT.</div>
 </figure>
 </div>
 
@@ -135,7 +141,7 @@ The source code for knowledge distillation in YOLOX-ViT is available at [https:/
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/Architecture-Explanation.png" alt="Architecture Block Explanations" style="width:100%;">
-  <div style="font-size: 14px; color: gray;">Figure 7: Architecture Block Explanations.
+  <div style="font-size: 14px; color: gray;">Figure 8: Architecture Block Explanations.
   </div>
 </figure>
 </div>
