@@ -16,7 +16,7 @@ Our latest research introduces an innovative framework that leverages Behavior T
 3. **Realistic Simulations**: We test our mission plans in a simulated environment using the UNavSim simulator before deploying in the real world. This step ensures that our plans are robust and reliable.
 
 <div style="text-align: center;">
-    <img style="width: 50%;" src="BT_Framework.svg" alt="Modeling and Verification Framework" title="Modeling and Verification Framework">
+    <img style="width: 50%;" src="media/BT_Framework.svg" alt="Modeling and Verification Framework" title="Modeling and Verification Framework">
 </div>
 
 ### The Autonomous Pipeline Inspection Algorithm
@@ -24,7 +24,7 @@ Our latest research introduces an innovative framework that leverages Behavior T
 At the heart of our approach is a sophisticated deep-learning model trained on Side-Scan Sonar (SSS) images. This model allows the AUV to detect and follow pipelines autonomously. The algorithm switches between three core maneuvers:
 
 <div style="text-align: center;">
-    <img style="width: 60%;" src="Pipeline-Survey-Under-Sand-Simulation3.0.png" alt="Pipeline Inspection Algorithm" title="Pipeline Inspection Algorithm">
+    <img style="width: 60%;" src="media/Pipeline-Survey-Under-Sand-Simulation3.0.png" alt="Pipeline Inspection Algorithm" title="Pipeline Inspection Algorithm">
 </div>
 
 1. **Rows Maneuver**: Scans large areas to detect the pipelines.
@@ -32,9 +32,9 @@ At the heart of our approach is a sophisticated deep-learning model trained on S
 3. **Tracking Maneuver**: Follows the pipeline while maintaining an optimal distance.
 
 <div style="text-align: center;">
-  <img src="neptus_screenshot.png" width="320" />
+  <img src="media/neptus_screenshot.png" width="320" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="unreal_screenshot.png" width="320" />
+  <img src="media/unreal_screenshot.png" width="320" />
 </div>
 
 If the pipeline is lost, the AUV initiates a search maneuver to find it again, ensuring continuous inspection.

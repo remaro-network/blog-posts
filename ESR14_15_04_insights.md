@@ -1,4 +1,4 @@
-# Insights into academic system
+# Insights
 
 While doing our PhDs, we gathered some insights into the academic system that are not obvious from the outside. Some things just work differently than what most people expect. We think it is very valuable to know these things beforehand, so you can have an easier time following the unwritten rules of academia (or to challenge them).
 
@@ -8,6 +8,12 @@ Speaking about your research group: the work environment matters a lot for your 
 
 It is important to position your work in the field and refer to relevant existing work. Ideally, existing work should justify the relevance of your contribution. If not, one needs to spend extra care on providing arguments as to *why* the considered problem is worth investigating. Reviewers often only have a limited understanding of your research field, so you need to be as explicit as possible about your motivation. One way of getting a good overview of the existing work is to write a *survey paper*. In this way, you can also identify gaps in the literature that you can explore in your research. Although this works well for some topics and PhD students, we experienced that it is not good to do them at the beginning of the PhD if you are new to the research field because they require some understanding of the topic.
 
-Doing a PhD has quite a big impact on your personal life, maybe more than other jobs. The consequences are often hard to foresee and some of us struggled with this more than others. In general, most PhD students are expected to be flexible, e.g. in which city to live, to travel to conferences on rather short notice or to work overtime before paper deadlines. This often interferes with private life and creates problems, some of which occur so often that they have their own dedicated [Wikipedia article](https://en.wikipedia.org/w/index.php?title=Two-body_problem_%28career%29). However, it is possible to find compromises if you fight them **link to personal**. Several of us founded families and had children during our time as PhD students, so this is definitely possible if you are planning to do so.
+Doing a PhD has quite a big impact on your personal life, maybe more than other jobs. The consequences are often hard to foresee and some of us struggled with this more than others. In general, most PhD students are expected to be flexible, e.g. in which city to live, to travel to conferences on rather short notice or to work overtime before paper deadlines. This often interferes with private life and creates problems, some of which occur so often that they have their own dedicated [Wikipedia article](https://en.wikipedia.org/w/index.php?title=Two-body_problem_%28career%29). However, it is possible to find compromises [if you fight them](ESR14_15_02_personal.md). Several of us founded families and had children during our time as PhD students, so this is definitely possible if you are planning to do so.
 
 However, your PhD can, of course, also have many positive impacts on your personal life, some of which we list here. Working independently on a research topic will help you both to be more independent in your life outside of academia and to trust yourself more. You will have to make many decisions, be it which research direction to pursue, which conference to submit to, which people to collaborate with, or which project to prioritise. Of course, there will be some decisions that you will not be happy with afterwards, but these will also help you to figure out what you want and what is important to you.
+
+Besides the insights that we got during our PhD, we also collected advice for your PhD journey some of our other blog posts:
+
+- [being a PhD student in an MSCA network](ESR14_15_01.md)
+- [general advice how to organize your PhD journey](ESR14_15_02_personal.md)
+- [your relationship with your supervisor](ESR14_15_03_supervision.md)
