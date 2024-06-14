@@ -1,7 +1,5 @@
 # Revolutionizing Underwater Pipeline Inspection
 
-**By Sergio Quijano**
-
 Maintaining underwater pipelines is a critical yet challenging task. Fortunately, recent advancements in Autonomous Underwater Vehicles (AUVs) and innovative datasets pave the way for more efficient and accurate inspections.
 
 ## Autonomous Underwater Vehicles: A Game Changer
