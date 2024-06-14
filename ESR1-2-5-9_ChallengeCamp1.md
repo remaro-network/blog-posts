@@ -7,7 +7,7 @@ In the vast underwater world, pipelines are critical in transporting essential r
 SubPipe is an innovative underwater dataset specifically designed for Simultaneous Localization and Mapping (SLAM), object detection, and image segmentation. Created using a Lightweight Autonomous Underwater Vehicle (LAUV) from OceanScan MST, SubPipe represents a significant leap forward in underwater inspection capabilities. This dataset includes high-resolution imagery from two cameras, side-scan sonar, and navigation sensors deployed in a real-world pipeline inspection environment.
 
 <div style="text-align: center;">
-    <img style="width: 60%;" src="SubPipe.svg" alt="SubPipe" title="SubPipe">
+    <img style="width: 60%;" src="media/SubPipe.svg" alt="SubPipe" title="SubPipe">
 </div>
 
 What sets SubPipe apart is its detailed annotations and comprehensive sensor suite. The RGB images and side-scan sonar data are meticulously annotated for object detection and segmentation, providing a rich resource for developing and testing advanced computer vision algorithms in challenging underwater conditions.
