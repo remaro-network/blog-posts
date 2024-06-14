@@ -67,13 +67,14 @@ To calculate the uncertainty, the following steps are performed:
 
 ## To keep in mind 
 
-The metrics explained above are applied to each output predicted. It means that for segmentation models, an uncertainty value needs to be calculated for each value predicted corresponding to the different parts (or pixels) of the image. An example is in the image bellow, that shows the uncertainties as a heatmap, where warmer colors (more yellow/red -ish) means higher uncertainty.
+The metrics explained above are applied to each output predicted. This means that for segmentation models, an uncertainty value is calculated for each value predicted to each different part (or pixel) of the image. An example is shown in the image below, which displays the uncertainties as a heatmap, where warmer colors (more yellow/red) indicate higher uncertainty.
 
 <img src="https://github.com/remaro-network/blog-posts/assets/58445878/1695ec9c-1291-474c-add5-f2ef51002618" alt="heatmap ex"  height="200"><br><br>
 
-For some tasks, such as in active learning, you need to compare the amount uncertainties of predictions referent to different inputs. When dealing with segmentation, that a map of uncertainties is generated, this values need to be agreated somehow. A option for aggreating the uncertainty in this case are calculate the mean value of the uncertainties corresponding to a image.
+For some tasks, such as in active learning, it is necessary to compare the amount of uncertainties of predictions referring to different inputs. When dealing with segmentation, where a map of uncertainties is generated, these values need to be aggregated somehow. One option for aggregating the uncertainty in this case is to calculate the mean value of the uncertainties corresponding to an image.
 
-It is important to keep in mind that it could be the case that the predictions have high uncertainty only for a small region of the images, and averaging the uncertainties for the entire image could hide the importance of this high uncertainty. Another thing to observe is that predicition of different classes of objects have different levels of uncertainty, and not considering this different classes when averaging the results could also hide important information about the uncertainty of a predicted segmentation mask.
+It is important to keep in mind that the predictions might have high uncertainty only for a small region of the image, and averaging the uncertainties for the entire image could hide the significance of this high uncertainty. Another consideration is that predictions of different classes of objects have different levels of uncertainty, and not accounting for these different classes when averaging the results could also suppress important information about the uncertainties of a predicted segmentation mask.
+
 
 
 ## Examples of use cases: Taking advantage of the uncertainties
