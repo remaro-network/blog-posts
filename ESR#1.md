@@ -75,8 +75,56 @@ For some tasks, such as in active learning, you need to compare the amount uncer
 It is important to keep in mind that it could be the case that the predictions have high uncertainty only for a small region of the images, and averaging the uncertainties for the entire image could hide the importance of this high uncertainty. Another thing to observe is that predicition of different classes of objects have different levels of uncertainty, and not considering this different classes when averaging the results could also hide important information about the uncertainty of a predicted segmentation mask.
 
 
-## Taking advantage of the uncertainties
+## Examples of use cases: Taking advantage of the uncertainties
+
+Now you have an idea of how to calculate uncertainties! But what can you do with that?
+
+Incorrectly predictions tend to have higher uncertainties than correctly predictions. This way, the uncertainties can be used for guiding the the reliability of the predictions, and they are much more reliable than the probabilities of the softmax in the last layer of classification and segmentation models. It is important to remember that different datasets and different models have different levels of uncertainty. Therefore, a study of the uncertainty should be performed for each individual case, analysing the uncertainties in teh training and validation sets, and using this values for defining aceptable uncertainty threshoulds for using during inference.
+
+Another use case is to help in the selection of data for being labeled to later train a model. Active learning is set family of methods that have the goal of selecting a small subset in a dataset that can be used for training a dataset that achieves performance similar to the performance achieved by the entire dataset. Being able to select a smaller dataset for labeling and training the model has the huge advantage of saving time and money with the tedious task of labeling datasets. 
+
+An example of active learning application is the reserach that we developed for selecting a small subset of images for the task of segmenting underwater pipeline images. The image bellow explains the methodology utilized in our reserach.[^3]
+
+
+<div align="center">
+    <img src="https://github.com/remaro-network/blog-posts/assets/58445878/9c5759c9-2d21-41ab-bb4f-69cd1d1e7d89" alt="abstract - v3 - rev5_compressed"  height="500"><br>
+</div>
+
+As can be seen in the image above, the methodology follows the following steps:
+1. Select some images in the pool of unlabeled images for being labeled;
+    * Initially all the images are unlabeled and the pool of labeled images is empty;
+    * In the first iteration a small percentage of images is randommely selected;
+    * In the next iterations the unlabeled images are selected if the corresponding predictions performed by the model trained in (3) is abobe the threshould defined in (5)
+3. Train a segmentation model
+4. Calculated the uncertainty of the labeled images using MC-dropout
+    * Because we want to select images that contains a pattern that the model does not have enough knowladge, we use the epstemic uncertainty
+    * For calculating the uncertainty of the image, we calculated the average value of the ncertainty heatmap
+5. Define a threshould based of the uncerints calculated in (3)
+6. Go back to step (1)
+
+
+Still using active learning, we developed a reserach for adapting a model trained with sinthetic images for being applied to real images, using the least effort for labeling images. The image bellow sumarizes our work.
+
+
+<div align="center">
+    <img src="https://github.com/remaro-network/blog-posts/assets/58445878/bd4ec6e2-acbb-495c-8fd6-99c67f6c80c3" alt="g11901-52" height="500">
+</div>
+
+
+## Check our work
+
+We hope that you are now curious to check our paper! 
+
+In case we would like to read our papers, here is the title for the active learning paper:
+
+> "Uncertainty Driven Active Learning for Image Segmentation in Underwater Inspection.", by Luiza Ribeiro Marnet, Yury Brodskiy, Stella Grasshof, and Andrzej Wąsowski.
+
+And this is the title for the sim-2-real paper:
+> "Bridging the Sim-to-Real GAP for Underwater Image Segmentation",  by Luiza Ribeiro Marnet, Stella Grasshof, Yury Brodskiy, and Andrzej Wąsowski.
+
+For the second paper we also release a dataset for underwater pipeline segmentation that can be downloaded in the [link]([https://link.springer.com/chapter/10.1007/978-3-031-59057-3_5](https://zenodo.org/records/10951363))
 
 ## References 
 [^1]: [Kendall, Alex, and Yarin Gal. "What uncertainties do we need in bayesian deep learning for computer vision?." Advances in neural information processing systems 30 (2017).](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://proceedings.neurips.cc/paper_files/paper/2017/file/2650d6089a6d640c5e85b2b88265dc2b-Paper.pdf)
 [^2]: [Feng, Di, et al. "A review and comparative study on probabilistic object detection in autonomous driving." IEEE Transactions on Intelligent Transportation Systems 23.8 (2021): 9961-9980.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9525313&casa_token=8RA6XUdmNUEAAAAA:t9KrRgd3RRbMIMjXQtaOP2oxw28jWgOTqn5UvqJ7EF6HrJNf7QivccRpkkw70kWhynwM2Lph&tag=1)
+[^3]: [Ribeiro Marnet, Luiza, et al. "Uncertainty Driven Active Learning for Image Segmentation in Underwater Inspection." International Conference on Robotics, Computer Vision and Intelligent Systems. Cham: Springer Nature Switzerland, 2024.](https://link.springer.com/chapter/10.1007/978-3-031-59057-3_5)
