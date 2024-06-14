@@ -1,4 +1,4 @@
-# Navigating the Unknown: How to Use Uncertainties in Deep Learning Predictions to Your Advantage
+![t2](https://github.com/remaro-network/blog-posts/assets/58445878/14483754-179d-4ffc-8b76-4aad883e4e3b)# Navigating the Unknown: How to Use Uncertainties in Deep Learning Predictions to Your Advantage
 
 Some years ago, my former manager told me a phrase that would later make sense and guide my research interests for the next years: "I do not care that your model does not know everything, as long as I know what it does not know."
 
@@ -50,14 +50,10 @@ For calculating the uncertainty, the following steps are performed:
 <img src="https://github.com/remaro-network/blog-posts/assets/58445878/f4897ecb-a82f-4339-9b3c-85867a2bbfcb" alt="t2"  height="200"><br><br>
 
 
-<img src="https://github.com/remaro-network/blog-posts/assets/58445878/710793fd-45d5-4a43-8710-c8bcf4c622b8" alt="3"  height="200"><br><br>
+<img src="https://github.com/remaro-network/blog-posts/assets/58445878/a6debcff-5488-4a43-af3d-17f48333608f" alt="t_T"  height="200"><br><br>
 
 
-<img src="https://github.com/remaro-network/blog-posts/assets/58445878/ebb27b3b-5163-4774-a677-64b8e6e75fc5" alt="4"  height="200"><br><br>
-
-
-<img src="https://github.com/remaro-network/blog-posts/assets/58445878/0f1d57a0-af3b-4def-b49b-999df15e3c93" alt="5"  height="200"><br><br>
-
+<img src="https://github.com/remaro-network/blog-posts/assets/58445878/94b28f2a-4e74-423b-8e16-496c83f45e26" alt="t_T"  height="200"><br><br>
 
 4. Measure the uncertainty of the outputs applying some metric to the predicted values.
 
