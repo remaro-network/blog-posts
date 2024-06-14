@@ -1,3 +1,34 @@
+# Sonars Introduction
+
+Sonars are acoustic sensors that rely on the propagation of sound to navigate or detect objects in the underwater domain. High-resolution sonars typically operate by emitting sound pulses at a high frequency, which allows for short-range scanning. Conversely, using lower frequencies extends the scanning range but decreases the resolution. By receiving and processing the signals that bounce back from encountered objects, sonars can detect the range of these objects.
+
+There are different kinds of sonars used for various applications, categorized into two main groups: active and passive. Active sonars emit sound pulses and listen for their return, while passive sonars only listen to sounds emitted by other sources (e.g., other ships or marine life). This makes passive sonars suitable for specific applications such as submarine detection and marine-life monitoring, while active sonars can be used for broader purposes including underwater navigation, object detection, and seafloor mapping.
+
+<!-- ![Schematic showing a Single-Beam sonar, a Multi-Beam sonar, and a Side-Scan sonar scanning a seafloor.](media/KD/sonars_s_mb_sss.png) -->
+
+<div style="text-align: center;">
+<figure>
+  <img src="./media/KD/sonars_s_mb_sss.png" alt="YOLOX-ViT Model Architecture" style="width:50%;">
+   <div style="font-size: 14px; color: gray;"> Figure 1: Visualization of Single Beam echo-sounder, Multi Beam echo-sounder, and Side Scan Sonar.</div>
+</figure> 
+</div>
+
+Active sonars are characterized by a set of main features: frequency, number of beams, minimum and maximum ranges, and horizontal and vertical apertures. Variations in these characteristics result in different sonar designs. The most well-known ones include Single-Beam sonars, Multi-Beam sonars, Forward-Looking sonars (FLS), Side-Scan sonars (SSS), and Synthetic Aperture sonars (SAS). Single-Beam sonars have one beam with a 1-degree vertical and horizontal aperture, typically used for measuring water depth. Multi-Beam sonars, while maintaining a single degree of vertical aperture, have a wide horizontal aperture that emits multiple beams in a fan-shaped pattern, making them ideal for seafloor mapping. Forward-Looking sonars have wide horizontal and vertical apertures, providing a higher level of detail from scanned environments. The output of FLS is a 2D image representing the range (distance to objects) and the beam angle, which helps visualize fine features, though 3D reconstruction using them is challenging.
+
+SSS consists of two identical sonars scanning from both sides, each with a narrow horizontal aperture, wide vertical aperture, and high maximum scanning range. Mounted on a moving platform, SSS is used for seabed imaging, providing a high level of detail. SAS are advanced SSS that ping sound pulses at a higher rate while covering long ranges. SAS outputs are images with much higher resolution than conventional sonars, allowing for detailed examination of small objects and fine features. However, their use is limited by the strict requirement of maintaining stable movements throughout the scan.
+
+<!-- ![Schematic showing a Single-Beam sonar, a Multi-Beam sonar, and a Side-Scan sonar scanning a seafloor.](media/KD/motivation_sonars_a_b.png) -->
+
+<div style="text-align: center;">
+<figure>
+  <img src="./media/KD/motivation_sonars_a_b.png" alt="YOLOX-ViT Model Architecture" style="width:50%;">
+   <div style="font-size: 14px; color: gray;"> Figure 2: Visualization of the principle of Forward-Looking Sonar.</div>
+</figure> 
+</div>
+
+Researchers working on underwater perception have faced challenges when using specific sonar devices for applications beyond their hardware capabilities. One such challenge is using FLS for 3D reconstruction purposes. Figure 2 (a and b) illustrates how FLS emits its fan-shaped beams, the data retrieved, and the acoustic 2D representation of scanned objects. As shown in Figure 2(a), the range \(R\) is detected to determine how far the objects are, and the beam number represented by angle \(\theta\) is known. However, the vertical angle, also known as the elevation angle, is lost. Another challenge in using FLS is shown in Figure 2(b), where at a specific beam \(i\), a ray hitting an object at several points over the same radius \(R\) is represented by the same point in an acoustic image, albeit with a higher intensity. This means that several points in the actual 3D world are only represented by one point in the acoustic image.
+
+
 # Towards Robust and Efficient Side-scan Sonar Object Detection with YOLOX-ViT
 
 ## Outline
@@ -15,7 +46,7 @@ Side-scan sonar (SSS), one of the most used type of sonar, emits sound waves tow
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/SWDD.png" alt="YOLOX-ViT Model Architecture" style="width:50%;">
-   <div style="font-size: 14px; color: gray;"> Figure 1: An example of Side-scan sonar image with a wall on the right (yellow curve). The black area with the yellow line in the middle of the image is the so-called Nadir gap. The Nadir gap is the area which is out of the field-of-view of the two side-scan sonar.</div>
+   <div style="font-size: 14px; color: gray;"> Figure 3: An example of Side-scan sonar image with a wall on the right (yellow curve). The black area with the yellow line in the middle of the image is the so-called Nadir gap. The Nadir gap is the area which is out of the field-of-view of the two side-scan sonar.</div>
 </figure> 
 </div>
 
@@ -48,7 +79,7 @@ In this context, deep learning (DL) based computer vision offers a promising sol
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/YoloX-Model.png" alt="YOLOX-ViT Model Architecture" style="width:100%;">
-   <div style="font-size: 14px; color: gray;"> Figure 1: YOLOX-ViT Model Architecture. </div>
+   <div style="font-size: 14px; color: gray;"> Figure 4: YOLOX-ViT Model Architecture. </div>
 </figure>
 </div>
 
@@ -57,7 +88,7 @@ YOLOX-ViT enhances the YOLOX model by integrating a vision transformer layer (Vi
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/VIT.png" alt="Visual Transformer layer" style="width:80%;">
-   <div style="font-size: 14px; color: gray;"> Figure 2: Visual Transformer Layer. </div>
+   <div style="font-size: 14px; color: gray;"> Figure 5: Visual Transformer Layer. </div>
 </figure>
 </div>
 
@@ -69,7 +100,7 @@ The KD process in YOLOX-ViT involves computing distinct loss functions for each 
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/KD_GA.png" alt="Knowledge Distillation" style="width:50%;">
-   <div style="font-size: 14px; color: gray;">Figure 3: Visualization the Knowledge Distillation Process in YOLOX-ViT.</div>
+   <div style="font-size: 14px; color: gray;">Figure 6: Visualization the Knowledge Distillation Process in YOLOX-ViT.</div>
 </figure>
 </div>
 
@@ -98,7 +129,7 @@ The source code for knowledge distillation in YOLOX-ViT is available at [https:/
 <div style="text-align: center;">
 <figure>
   <img src="./media/KD/Architecture-Explanation.png" alt="Architecture Block Explanations" style="width:100%;">
-  <div style="font-size: 14px; color: gray;">Figure 3: Architecture Block Explanations.
+  <div style="font-size: 14px; color: gray;">Figure 7: Architecture Block Explanations.
   </div>
 </figure>
 </div>
