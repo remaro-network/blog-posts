@@ -29,3 +29,5 @@ Besides the general advice on your PhD journey that can hopefully help you to en
 - [Being a PhD student in an MSCA network](ESR14_15_01.md)
 - [Your relationship with your supervisor](ESR14_15_03_supervision.md)
 - [Insights](ESR14_15_04_insights.md)
+
+<span style="color:grey"> Disclaimer: This is a personal blog written using the input of several people. Any views or opinions represented in this blog are personal and do not represent those of people, institutions or organisations that the owner may or may not be associated with in professional or personal capacity, unless explicitly stated. Any views or opinions are not intended to malign any religion, ethnic group, club, organisation, company, or individual. </span>

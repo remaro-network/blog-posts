@@ -21,3 +21,5 @@ Besides the advice on supervision, we also collected more advice in some of our 
 - [Being a PhD student in an MSCA network](ESR14_15_01.md)
 - [General advice on your PhD journey](ESR14_15_02_personal.md)
 - [Insights](ESR14_15_04_insights.md)
+
+<span style="color:grey"> Disclaimer: This is a personal blog written using the input of several people. Any views or opinions represented in this blog are personal and do not represent those of people, institutions or organisations that the owner may or may not be associated with in professional or personal capacity, unless explicitly stated. Any views or opinions are not intended to malign any religion, ethnic group, club, organisation, company, or individual. </span>
