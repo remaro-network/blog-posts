@@ -59,6 +59,9 @@ While the overall objective of SLAM is to estimate a globally consistent camera 
 ![alt text](media/geometric_chicken.png)
 > Given a set of matched features  (in this case, taking only one as example), a camera transform is estimated. This transform is used to project the points in the 3D space, which are then reprojected back on the image. This reprojection error is used to refine the camera transform estimate.
 
+An example of a widely-used indirect method is ORB-SLAM3:
+![alt text](media/orbslam3.svg)
+
 In short, SLAM algorithms are often named after the error function that is being optimized and the kind of information (pixels/Keypoints) that is used in such optimization:
 
 |                    |            Keypoints           |     Gradient Pixels    |     All Pixels    |
