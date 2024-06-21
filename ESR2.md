@@ -4,6 +4,14 @@ This blog post is based on the paper:
 
 >Álvarez-Tuñón, O., Brodskiy, Y., & Kayacan, E. (2023). Monocular visual simultaneous localization and mapping:(r) evolution from geometry to deep learning-based pipelines. IEEE Transactions on Artificial Intelligence.
 
+- [Monocular visual Simultaneous Localization and Mapping (SLAM): formulation and surveying](#monocular-visual-simultaneous-localization-and-mapping-slam-formulation-and-surveying)
+  - [What is SLAM?](#what-is-slam)
+  - [The SLAM vocabulary](#the-slam-vocabulary)
+    - [The SLAM front-end](#the-slam-front-end)
+      - [Tracking or Visual Odometry](#tracking-or-visual-odometry)
+    - [The SLAM back-end](#the-slam-back-end)
+
+
 ## What is SLAM?
 
 SLAM, or Simultaneous Localization and Mapping, is a fundamental method enabling autonomous navigation in mobile robots. It addresses two critical questions:
@@ -34,13 +42,13 @@ First of all, we can divide SLAM in two modules: the *front-end* and the *back-e
 - The front-end infers estimates from the sensors. 
 - The back-end optimizes the estimates from the front-end.
   
-#### The SLAM front-end
+### The SLAM front-end
 
 The SLAM front-end consists of all the algorithms that infer some estimate from the (camera) sensor data. These algorithms are essential for processing raw sensor inputs into meaningful information that can be used for localization and mapping. The primary components of the SLAM front-end are:
 - *Tracking* is the process of continuously estimating the robot's position and orientation (*pose*) relative to its surroundings. It is also referred to as *visual odometry*.
 - *Loop detection*, also known as loop closure, is the process of recognizing previously visited locations to correct accumulated errors in the map and the robot's pose estimate. *Relocalization* is closely related and refers to the ability of the system to recover from tracking failures by identifying known locations. 
 
-### Tracking or Visual Odometry
+#### Tracking or Visual Odometry
 
 
 While the overall objective of SLAM is to estimate a globally consistent camera trajectory within a map, the tracking thread incrementally obtains an estimate of the local trajectory. This process, often referred to as Visual Odometry (VO), involves calculating the camera's motion by analyzing changes in the captured images over time. Depending on how motion is estimated from adjacent image frames, we can classify the methods for visual tracking as *direct* or *indirect*:
@@ -68,3 +76,20 @@ In short, SLAM algorithms are often named after the error function that is being
 |-------------------:|:------------------------------:|:----------------------:|:-----------------:|
 | Reprojection error | Indirect or feature-based SLAM |           N/A          |        N/A        |
 |  Photometric error |       Sparse direct SLAM       | Semi-dense direct SLAM | Dense direct SLAM |
+
+
+### The SLAM back-end
+By itself, the front-end will drift as the time pases and the map increases. The back-end optizes the estimates from the front-end. It does so by creating a *map* of previous  estimates and measurements. 
+
+![A chicken creating a trajectory map](media/concrete.gif)
+> A chicken creating a map that stores previous points in the trajectory. The so-called keyframes are conditioned by the chicken's stepsize.
+
+According to how the map is structured
+and processed, there are two approaches: *filter-based* and
+*optimization-based*:
+- Filter-based  marginalise all the poses for every new
+frame while retaining all the landmarks detected, creating a
+compact graph. This graph only grows when exploring new areas and detecting new features. However, it will eventually become a fully interconnected graph, severely limiting the number of features that can be stored while preserving computational efficiency.
+
+- Optimization-based approaches, as opposed to filtering, solve
+the complete graph, leveraging an algorithm such as bundle adjustment (BA). They can either do it in a sliding window (local BA), or in a subset of the overall frames, referred to as keyframes (global BA). The rate at which the optimization is performed is lower than the frame rate: despite including more elements in the computation, they are sparsely connected, making optimization approaches comparatively more efficient. Furthermore, it has been argued that adding features is more beneficial for accuracy than adding frames [76]. All these facts have turned optimization approaches into the new de facto standard for the back-end in SLAM. 
