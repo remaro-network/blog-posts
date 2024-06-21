@@ -20,7 +20,7 @@ SLAM, or Simultaneous Localization and Mapping, is a fundamental method enabling
 
 You may have noticed that to determine your location (where am I?), you first need to understand your surroundings (what does the environment around me look like?). Conversely, to map the environment, you must know your position within it. That is commonly known as *the chicken and egg problem* in SLAM.
 
-![chicken and egg](media/chicken_n_egg.png)
+![chicken and egg](media/chicken_n_egg.svg)
 
 Formally speaking, *"SLAM defines  a state estimation problem in which an autonomous system must determine its location in the environment while generating a representation of it as a map"*.
 
@@ -59,12 +59,12 @@ While the overall objective of SLAM is to estimate a globally consistent camera 
   - *Dense* if all pixels are included.
   
 
-![alt text](media/direct_geometric_chicken.png) 
+![alt text](media/direct_geometric_chicken.svg) 
   > Direct methods compare the pixel intensities between consecutive image frames and align the images by minimizing the photometric error. This optimization is highly nonconvex, and thus is performed following a coarse-to-fine approach, matching at low resolutions first and then iteratively refining at higher resolutions.
 
 - Indirect methods, also known as *feature-based* methods, rely on extracting and matching features or keypoints between frames to estimate motion. This computation is based on the optimization of the reprojection error.
 
-![alt text](media/geometric_chicken.png)
+![alt text](media/geometric_chicken.svg)
 > Given a set of matched features  (in this case, taking only one as example), a camera transform is estimated. This transform is used to project the points in the 3D space, which are then reprojected back on the image. This reprojection error is used to refine the camera transform estimate.
 
 An example of a widely-used indirect method is ORB-SLAM3:
