@@ -91,5 +91,8 @@ and processed, there are two approaches: *filter-based* and
 frame while retaining all the landmarks detected, creating a
 compact graph. This graph only grows when exploring new areas and detecting new features. However, it will eventually become a fully interconnected graph, severely limiting the number of features that can be stored while preserving computational efficiency.
 
-- Optimization-based approaches, as opposed to filtering, solve
-the complete graph, leveraging an algorithm such as bundle adjustment (BA). They can either do it in a sliding window (local BA), or in a subset of the overall frames, referred to as keyframes (global BA). The rate at which the optimization is performed is lower than the frame rate: despite including more elements in the computation, they are sparsely connected, making optimization approaches comparatively more efficient. Furthermore, it has been argued that adding features is more beneficial for accuracy than adding frames [76]. All these facts have turned optimization approaches into the new de facto standard for the back-end in SLAM. 
+![A chicken creating a trajectory map](media/kalman.gif)
+> In this simple example, a robot (O) estimates its position in the environment (shown in red) by creating a state vector that includes its own position and the positions of landmarks (X) (shown in blue). As the robot moves through the environment, it detects more landmarks, which are then added to the state vector. These landmarks remain in the state vector even when they are no longer within the robot's immediate reach.
+For a more detailed explanation of how Kalman Filters, like the one exemplified here, work, you can visit [this blog post](https://olayasturias.github.io/ekf/slam/bayesian/filter/2021/05/13/ekf.html).
+
+- Optimization-based methods, unlike filtering, solve the entire graph using algorithms like bundle adjustment (BA). They can optimize in a sliding window (local BA) or a subset of keyframes (global BA). Although these methods include more elements, they connect them sparsely, making the optimization efficient.
