@@ -2,3 +2,6 @@
 * [Revolutionizing Underwater Pipeline Inspection](ESR1-2-5-7-9_ChallengeCamp1.md)
 * [Unlocking the Depths: Introducing SubPipe - The Future of Underwater Pipeline Inspection](ESR1-2-5-9_ChallengeCamp1.md)
 * [Advice for new Marie Skłodowska-Curie PhD students](ESR14_15_01.md)
+* [Your PhD journey](ESR14_15_02_personal.md)
+* [Supervision](ESR14_15_03_supervision.md)
+* [Insights](ESR14_15_04_insights.md)
